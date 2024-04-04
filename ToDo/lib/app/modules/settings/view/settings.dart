@@ -218,30 +218,30 @@ class _SettingsPageState extends State<SettingsPage> {
                                     ),
                                     actions: [
                                       TextButton(
-                                        onPressed: () => Get.back(),
-                                        child: Text('cancel'.tr,
-                                            style: context
-                                                .theme.textTheme.titleMedium
-                                                ?.copyWith(
-                                                    color: Colors.blueAccent)),
-                                      ),
+                                          onPressed: () => Get.back(),
+                                          child: Text('cancel'.tr,
+                                              style: context
+                                                  .theme.textTheme.titleMedium
+                                                  ?.copyWith(
+                                                      color:
+                                                          Colors.blueAccent))),
                                       TextButton(
-                                        onPressed: () {
-                                          isar.writeTxnSync(() {
-                                            isar.todos.clearSync();
-                                            isar.tasks.clearSync();
-                                            todoController.tasks.clear();
-                                            todoController.todos.clear();
-                                          });
-                                          EasyLoading.showSuccess(
-                                              'deleteAll'.tr);
-                                          Get.back();
-                                        },
-                                        child: Text('delete'.tr,
-                                            style: context
-                                                .theme.textTheme.titleMedium
-                                                ?.copyWith(color: Colors.red)),
-                                      ),
+                                          onPressed: () {
+                                            isar.writeTxnSync(() {
+                                              isar.todos.clearSync();
+                                              isar.tasks.clearSync();
+                                              todoController.tasks.clear();
+                                              todoController.todos.clear();
+                                            });
+                                            EasyLoading.showSuccess(
+                                                'deleteAll'.tr);
+                                            Get.back();
+                                          },
+                                          child: Text('delete'.tr,
+                                              style: context
+                                                  .theme.textTheme.titleMedium
+                                                  ?.copyWith(
+                                                      color: Colors.red))),
                                     ],
                                   ),
                                 ),
@@ -320,18 +320,10 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             SettingCard(
               icon: const Icon(Iconsax.hierarchy_square_2),
-              text: 'version'.tr,
-              info: true,
-              textInfo: '$appVersion',
-            ),
-            SettingCard(
-              icon: Image.asset(
-                'assets/images/github.png',
-                scale: 20,
-              ),
-              text: '${'project'.tr} GitHub',
+              text: 'GitHub',
               onPressed: () async {
-                final Uri url = Uri.parse('https://github.com/yb0027/MPL-Lab');
+                final Uri url =
+                    Uri.parse('https://github.com/yb0027/mpl');
                 if (!await launchUrl(url,
                     mode: LaunchMode.externalApplication)) {
                   throw Exception('Could not launch $url');
